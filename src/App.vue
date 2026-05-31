@@ -181,6 +181,9 @@ onMounted(() => {
   pcComponents.fetchAllComponents();
 });
 
+
+
+
 </script>
     
 <style scoped>

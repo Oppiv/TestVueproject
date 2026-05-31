@@ -73,6 +73,10 @@ export const usePCComponentsStore = defineStore('pcComponents', () => {
         fetchCoolers()
       ])
       
+      if (Math.random() > 0.2) {
+        throw new Error('asd')
+      }
+
       // Добавляем свойство type к каждой сущности
       const allComponents: PCComponentType[] = [
         ...cpusData.map(item => ({ ...item, type: 'cpu' as const })),
