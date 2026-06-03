@@ -62,7 +62,7 @@ export const usePCComponentsStore = defineStore('pcComponents', () => {
     error.value = null
     
     try {
-      // Имитация API запросов к разным эндпоинтам
+      // Имитация API запросов
       const [cpusData, gpusData, motherboardsData, ramsData, storagesData, psusData, coolersData] = await Promise.all([
         fetchCPUs(),
         fetchGPUs(),

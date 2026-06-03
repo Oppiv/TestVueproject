@@ -61,14 +61,14 @@
           </div>
           
           <div class="component-specs">
-            <!-- CPU спецификации -->
+            <!-- CPU -->
             <template v-if="component.type === 'cpu'">
               <div class="spec">⚡ {{ component.cores }} ядер / {{ component.threads }} потоков</div>
               <div class="spec">🚀 {{ component.frequency }} GHz</div>
               <div class="spec">🔌 {{ component.socket }}</div>
             </template>
             
-            <!-- GPU спецификации -->
+            <!-- GPU -->
             <template v-else-if="component.type === 'gpu'">
               <div class="spec">🎮 {{ component.vram }} GB VRAM</div>
               <div class="spec">💪 TDP: {{ component.tdp }}W</div>
