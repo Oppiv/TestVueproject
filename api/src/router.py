@@ -27,9 +27,13 @@ router = APIRouter(prefix='/labubu')
 @router.get('/get_list')
 # async def – асинхронная функция обработчика
 # db_session: AsyncSession – параметр, который FastAPI автоматически заполнит через Depends
-async def get_list(db_session: AsyncSession = Depends(get_session)):
+# search_str: str – необязательный параметр запроса для поиска
+async def get_list(db_session: AsyncSession = Depends(get_session), search_str: str = None):
     # Строим SQL-запрос SELECT * FROM labubu
     query = select(Table)
+    # Если передана строка поиска, добавляем условие фильтрации
+    if search_str:
+        query = query.where(Table.name.ilike(f"%{search_str}%"))
     # Выполняем запрос асинхронно
     query_result = await db_session.execute(query)
     # scalars() извлекает строки как объекты Table, all() собирает все в список
